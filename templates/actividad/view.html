@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="row ">
+    <div class="col l10 push-l1 s12">
+        <h1 class="blue-text text-lighten-1" align="center">{{actividad}} </h1>
+        <h6 class="blue-text text-lighten-1" align="center">Fecha:{{actividad.fecha}} <br></h6>
+
+        {% if mensaje %}
+        <h6 class="red-text text-lighten-1" align="center">{{mensaje}} <br></h6>
+        {% endif %}
+    
+<hr>
+    <div class="col l10 push-l1 s12" >
+            <div class="container z-depth-1">
+                <br>
+                {% if request.user.is_staff %}
+                    <h5 class="blue-text text-lighten-1" align="center">Codigo Generado: <b>{{codigo}}</b> </h5>
+                    <h5 align="center"><a href="{% url 'actividad' actividad.pk %}" class="btn">Generar Nuevo codigo</a></h5>                    
+                {% else %}
+                    {% if asistencia %}
+                        <h5 class="blue-text text-lighten-1" align="center">Codigo utilizado: <b>{{codigo}}</b> </h5>
+                        <h5 class="blue-text text-lighten-1" align="center">Docente: {{asistencia.docente}}</h5>
+                    {% elif actividad.estado %}       
+
+                        <form method="POST">
+                                {% csrf_token %}                                
+                            <div class="row">
+                                <div class="input-field col s10 push-s1">
+                                    <input placeholder="Codigo de registro a la actividad" name="codigo" id="codigo" type="text" class="validate">
+                                    <label for="codigo">Codigo</label>
+                                </div>
+                            </div>
+                            <div class="row" style="text-align: center;">
+                                    <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">send</i>Enviar</button>
+                            </div>
+                        </form>
+                    {% else %}
+                        <h5 class="blue-text text-lighten-1" align="center">Registro de asistencia no disponible</b> </h5>
+                    {% endif %}                    
+                
+                {% endif %}                    
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

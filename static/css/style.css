@@ -1,0 +1,62 @@
+/* Custom Stylesheet for overriding Materialize 
+   Made By MaterializeCSS.com
+*/
+
+/* Base Layout Styles */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif; /* Asegúrate de que estás cargando esta fuente o elige otra que prefieras */
+  background-color: #f4f4f4; /* Un fondo claro para contraste */
+}
+
+main {
+  flex: 1 0 auto;
+  padding: 20px 0; /* Agregando un pequeño padding arriba y abajo */
+}
+
+/* Icon Block Styles */
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+/* Icon and Text Styles */
+.material-icons, .icon-text {
+  display: inline-flex;
+  vertical-align: bottom;
+  padding-bottom: 3px;
+}
+
+/* Main content styles */
+.main-content {
+  padding: 20px; /* Espaciado general para el contenido principal */
+}
+
+.header-title {
+  text-align: center;
+  font-size: 2.5em; /* Haciendo el título más prominente */
+  margin-bottom: 20px; /* Espaciado debajo del título */
+  font-weight: 500; /* Semi-bold */
+}
+
+.logo-img {
+  display: block;
+  margin: 20px auto; /* Espaciado arriba y abajo y centrar horizontalmente */
+  max-width: 90%; /* Controlar el tamaño máximo de la imagen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+}
+
+.sign-in-btn {
+  display: block;
+  margin: 20px auto; /* Espaciado arriba y abajo y centrar horizontalmente */
+  transition: transform 0.3s ease; /* Animación suave al hacer hover */
+}
+
+.sign-in-btn:hover {
+  transform: scale(1.05); /* Efecto zoom al pasar el mouse */
+}

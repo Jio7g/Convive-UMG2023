@@ -1,0 +1,35 @@
+
+{% include "head.html" %}
+{% load static %}
+
+<body >
+{% include "navbar.html" %}
+
+<main hidden>
+  <div class="container">
+    <div class="row">
+      <div class="col l10 push-l1 s12 z-depth-3" style="margin-top:0.5rem">
+          {% block content %}
+          {% endblock %}
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+
+{% include "footer.html" %}
+
+  <!--  Scripts-->
+  <script src="{% static "js/materialize.js" %}"></script>
+  <script src="{% static "js/init.js" %}"></script>
+  <script>
+    $( document ).ready(function() {
+      $("main").fadeIn();
+      $("nav").fadeIn();
+    });
+  </script>
+  </body>
+
+</html>

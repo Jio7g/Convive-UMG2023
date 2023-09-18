@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row ">
+    <h1 class="blue-text text-lighten-1" align="center"><i class="medium material-icons ">edit</i>Perfil </h1>
+    <hr>
+</div>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-field col s12 ">
+            <input type="text" name="carnet" id="id_carnet" maxlength="20" required="" value="{{request.user.profile.carnet}}" class="tooltipped" data-position="top" data-tooltip="Por favor ingresar carnet en el formato XXXX-XX-XXXX">
+            <label for="carnet">Carnet</label>
+    </div>
+    <div class="input-field col s12" >
+            <select class="select" type="text" name="semestre" id="id_semestre">
+                    <option value="2" selected>2do Semestre</option>
+                    <option value="4">4to Semestre</option>
+                    <option value="6">6to Semestre</option>
+                    <option value="8">8vo Semestre</option>
+                    <option value="10">10mo Semestre</option>
+                    <option value="12">12vo Semestre</option>
+            </select>
+            <label>Semetres cursado</label>
+    </div>
+    <br>
+      <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">send</i>Enviar</button>
+      <br>
+  </form>
+<p></p>
+<script>
+  
+        $( "#id_carnet" ).focusout(function(){
+          let carnet =  $( "#id_carnet" ).val();
+          let match = /^([0-9]{4}-[0-9]{2}-[0-9]{4,5})$/.test(carnet);
+          if(match){
+            $("button").removeAttr('disabled');
+          }else{
+            $("button").attr('disabled','disabled');
+          }
+        });
+        $( "#id_carnet" ).keyup(function(){
+          let carnet =  $( "#id_carnet" ).val();
+          let match = /^([0-9]{4}-[0-9]{2}-[0-9]{4,5})$/.test(carnet);
+          if(match){
+            $("button").removeAttr('disabled');
+          }else{
+            $("button").attr('disabled','disabled');
+          }
+        });
+
+        
+</script>
+<script>
+
+
+$( document ).ready(function() {
+    $("input").addClass('');
+    $('select').formSelect(); 
+});
+</script>
+{% endblock %}
