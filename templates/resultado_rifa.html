@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado de la Rifa</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1.roulette-congrats-messaje {
+            color: #4CAF50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2.roulette-winner-messaje {
+            color: #FF9800;
+            margin-bottom: 10px;
+        }
+        h4.roulette-name-messaje {
+            background-color: #ECEFF1;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1 class=roulette-congrats-messaje>¡Felicidades!</h1>
+    <h2 class=roulette-winner-messaje>El ganador de la rifa es: </h2>
+    <h4 class=roulette-name-messaje> Nombre: {{ ganador.user.first_name }} {{ ganador.user.last_name }}</h4>
+    <a class="btn return-gift" href="{% url 'realizar_rifa'%}">Volver a Realizar Rifa</a>
+</body>
+</html>
+{% endblock %}

@@ -18,12 +18,14 @@
           <li><a href="{% url 'logout'%}"><i class="material-icons">exit_to_app</i>Salir</a></li>
           {% if request.user.is_staff %}
             <li><a href="{% url 'semestres'%}"><i class="material-icons">assessment</i>Reportes</a></li>
+            <li><a href="{% url 'genera_rifa'%}"><i class="material-icons">card_giftcard</i>Rifa</a></li>
           {% endif %}
         </ul>
       <ul id="nav-mobile" class="sidenav noprint">
           <li><a href="{% url 'logout'%}"><i class="material-icons">exit_to_app</i>Salir</a></li>
           {% if request.user.is_staff %}
             <li><a href="{% url 'semestres'%}"><i class="material-icons">assessment</i>Reportes</a></li>
+            <li><a href="{% url 'genera_rifa'%}"><i class="material-icons">card_giftcard</i>Rifa</a></li>
           {% endif %}
       </ul>
 

@@ -31,5 +31,10 @@ class Asistencia(models.Model):
     codigo = models.CharField(max_length=10, null=True, unique=True)
     def __str__(self):
         return self.actividad.nombre
-    
-    
+
+class Rifa(models.Model):    
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
+    ganador = models.ForeignKey(Perfil, on_delete=models.CASCADE,null=True)
+    fecha = models.DateField(auto_now_add=True)
+    def __str__(self):
+        return f"{self.evento.nombre} - Ganador: {self.ganador.user.username if self.ganador else 'N/A'}"

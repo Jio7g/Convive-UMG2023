@@ -25,5 +25,7 @@ from .views import *
 urlpatterns = [
     path('elevacion', docentes, name="docentes"),    
     path('reporte/<int:semestre>', reporte, name="reporte"),    
-    path('semestres', semestres, name="semestres"),    
+    path('semestres', semestres, name="semestres"),
+    path('rifa/', realizar_rifa, name="realizar_rifa"),
+    path('rifas/', RifaView, name="genera_rifa"),    
 ]

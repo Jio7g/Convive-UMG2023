@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Rifa</title>
+</head>
+<body>
+    <h1 class="title-realizar-rifa">Rifa UMG 2023</h1>
+    <div class="button-container">
+        <a class="btn return-gift" href="{% url 'realizar_rifa'%}">Realizar Rifa</a>
+    </div>
+    <p></p>
+    <p></p>
+    <style>
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+    }
+        .title-realizar-rifa {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    
+        .btn {
+            text-align: center;
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 5px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        .btn:active {
+            transform: translateY(1px);
+        }
+    </style>
+</body>
+</html>
+{% endblock %}

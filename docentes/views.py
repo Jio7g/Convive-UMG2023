@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from estudiatnes.models import *
 from general.models import *
+import random
+from django.db.models import Q
 # Create your views here.
 @login_required
 def docentes(request):
@@ -38,3 +40,28 @@ def reporte(request, semestre):
 @login_required
 def semestres(request):
     return render(request,'semestres.html')
+
+@login_required
+def RifaView(request):
+    return render(request,'realiza_rifa.html')
+
+@login_required
+def realizar_rifa(request):
+    if request.user.is_staff == False:
+        return redirect(reverse('index'))
+
+    # Obtiene todos los perfiles registrados
+    estudiantes = Perfil.objects.all()
+
+    # Verifica si hay estudiantes registrados
+    if not estudiantes.exists():
+        return render(request, 'error.html', {'mensaje': 'No hay estudiantes registrados.'})
+
+    # Selecciona un ganador al azar
+    ganador = random.choice(list(estudiantes))  # Convertimos QuerySet a lista para usar random.choice
+
+    evento = Evento.objects.get(estado=True)
+    rifa = Rifa(evento=evento, ganador=ganador)
+    rifa.save()
+
+    return render(request, 'resultado_rifa.html', {'ganador': ganador})
