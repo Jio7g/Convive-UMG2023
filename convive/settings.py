@@ -106,11 +106,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' #Paste 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'convive',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'estomecaemal',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'PASSWORD': 'HYIgrVyF85gSt2gnwE4I',
+        'HOST': 'containers-us-west-80.railway.app',
+        'PORT': '7917',
     }
 }
 
